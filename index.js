@@ -22,7 +22,6 @@ const dbconnect = async () => {
 
 dbconnect();
 
-
 app.listen(8472,()=>{
     console.error("server start with 8472");
     
