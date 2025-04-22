@@ -1,8 +1,6 @@
 const express=require("express")
 const app=express()
 
-app.use(express.json());
-
  let mongo = `mongodb+srv://nodepractice:<db_password>@cluster0.sk2g4jt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 
 app.get("/test",(request,responce)=>{
@@ -23,7 +21,7 @@ const dbconnect = async () => {
 dbconnect();
 
 app.listen(8472,()=>{
-    console.error("server start with 8472");
+    console.error("server start with 8472...");
     
 })
 
