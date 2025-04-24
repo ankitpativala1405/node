@@ -26,7 +26,7 @@ app.patch("/:id", async (req, res) => {
   res.send(user);
 });
 
-app.listen(5000, () => {
+app.listen(4000, () => {
   console.log("server connected.....");
   dbconnect();
 });
