@@ -9,8 +9,7 @@ const dbconnect = async () => {
     console.error("Connection error:", error);
   }
 };
-
-// dbconnect();
+ 
 module.exports=dbconnect
 
 
