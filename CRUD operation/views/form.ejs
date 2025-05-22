@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: purple;
+            color: white;
+            padding: 30px;
+        }
+
+        table,
+        td,
+        th {
+            margin-top: 100px;
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This is Form Page</h1>
+    <form action="/insertData" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label for="">id</label>
+                    <input type="number" placeholder="userId" name="userId" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Name</label>
+                    <input type="text" placeholder="userName" name="name" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Email</label>
+                    <input type="email" placeholder="userEmail" name="email" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Password</label>
+                    <input type="password" placeholder="userPassword" name="password" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        <% student.map((data)=> { %>
+            <tr>
+                <td>
+                    <%= data.userid %>
+                </td>
+                <td>
+                    <%= data.name %>
+                </td>
+                <td>
+                    <%= data.email %>
+                </td>
+                <td>
+                    <%= data.password %>
+                </td>
+                 <td>
+                    <button>
+                        <a href="/editData?id=<%= data.userid %>">Edit</a>
+                    </button>
+                </td>
+                 <td>
+                    <button>
+                        <a href="/deleteData?id=<%= data.userid %>">Delete</a>
+                    </button>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>
