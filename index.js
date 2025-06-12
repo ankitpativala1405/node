@@ -1,25 +1,26 @@
-const http = require("http");
-require("dotenv").config();
-const port = process.env.PORT || 9000;
+const express=require("express")
+const app=express()
 
-const server = http.createServer((req, res) => {
-  let url = req.url;
-  if (url === "/") {
-    res.write("Welcome To Home Page !!");
-    res.end();
-  } else if (url === "/about") {
-    res.write("Welcome To About Page !!");
-    res.end();
-  } else if (url === "/contact") {
-    res.write("Welcome To Contact Page !!");
-    res.end();
-  } else {
-    res.writeHead(404);
-    res.write("404 Page Not Found !!");
-    res.end();
+ let mongo = `mongodb+srv://nodepractice:<db_password>@cluster0.sk2g4jt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+
+app.get("/test",(request,responce)=>{
+    responce.send("ankit")
+})
+
+const mongoose = require("mongoose");
+
+const dbconnect = async () => {
+  try {
+    await mongoose.connect("mongodb+srv://nodepractice:Ankit@cluster0.sk2g4jt.mongodb.net/yourDatabaseName?retryWrites=true&w=majority&appName=Cluster0");
+    console.log("Mongoose connected ..... ");
+  } catch (error) {
+    console.error("Connection error:", error);
   }
-});
+};
 
-server.listen(port, (err) => {
-  !err ? console.log(`Server Start With PORT: ${port}`) : null;
-});
+dbconnect();
+
+app.listen(8472,()=>{
+    console.error("server start with 8472...");
+    
+})
